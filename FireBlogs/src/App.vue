@@ -1,7 +1,7 @@
 <template>
   <div class="app-wrapper">
     <div class="app">
-      <Navigation/>
+      <Navigation />
       <router-view />
     </div>
   </div>
