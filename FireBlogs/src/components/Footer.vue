@@ -23,10 +23,10 @@
         </div>
         <div class="col-2">
           <ul>
-            <router-link class="link" v-bind:to="{ name: 'home' }"
+            <router-link class="link" v-bind:to="{ name: 'Home' }"
               >Home</router-link
             >
-            <router-link class="link" v-bind:to="{ name: 'blogs' }"
+            <router-link class="link" v-bind:to="{ name: 'Blogs' }"
               >blogs</router-link
             >
             <router-link
@@ -35,7 +35,7 @@
               v-bind:to="{ name: 'newpost' }"
               >Create Post</router-link
             >
-            <router-link v-if="!user" class="link" v-bind:to="{ name: 'login' }"
+            <router-link v-if="!user" class="link" v-bind:to="{ name: 'Login' }"
               >Login In / Register</router-link
             >
           </ul>
@@ -62,12 +62,11 @@ export default {
     instagram,
     linkedin,
   },
-  data(){
-    return{
-      user:true,
-      
-    }
-  }
+  data() {
+    return {
+      user: true,
+    };
+  },
 };
 </script>
 
@@ -108,8 +107,8 @@ footer {
         color: #fff;
         text-decoration: none;
         font-weight: 600;
-        @media (min-width:800px) {
-            text-align: initial;
+        @media (min-width: 800px) {
+          text-align: initial;
         }
       }
       ul {
