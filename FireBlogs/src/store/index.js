@@ -28,6 +28,7 @@ export default new Vuex.Store({
       },
     ],
     editPost: null,
+    user:null,
   },
   mutations: {
     toggleEditPost(state, payload) {
