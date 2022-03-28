@@ -11,11 +11,11 @@
       <div class="inputs">
         <div class="input">
           <input type="text" placeholder="First Name" v-model="firstName" />
-          <email class="icon" />
+          <user class="icon" />
         </div>
         <div class="input">
           <input type="text" placeholder="Last Name" v-model="lastName" />
-          <email class="icon" />
+          <user class="icon" />
         </div>
         <div class="input">
           <input type="text" placeholder="UserName" v-model="userName" />
