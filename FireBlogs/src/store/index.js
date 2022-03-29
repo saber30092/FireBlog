@@ -35,28 +35,37 @@ export default new Vuex.Store({
     profileEmail: null,
     profileFirstName: null,
     profileLastName: null,
+    profileUsername: null,
     profileId: null,
     profileInitials: null,
   },
   mutations: {
-    updateUser(state,payload){
-      state.user=payload
-    },
     toggleEditPost(state, payload) {
       state.editPost = payload;
+    },
+    updateUser(state, payload) {
+      state.user = payload
     },
     setProfileInfo(state, doc) {
       state.profileId = doc.id;
       state.profileEmail = doc.data().email;
       state.profileFirstName = doc.data().firstName;
       state.profileLastName = doc.data().lastName;
-      state.profileUsername = doc.data().username;
+      state.profileUsername = doc.data().userName;
     },
     setProfileInitials(state) {
-      state.profileIniitials =
-        state.profileFirstName.match(/(\b\s)?/g).join("") +
-        state.profileLastName.match(/(\b\s)?/g).join("");
-    }
+      state.profileInitials =
+        "彥";
+    },
+    changeFirstName(state, payload) {
+      state.profileFirstName = payload;
+    },
+    changeLastName(state, payload) {
+      state.profileLastName = payload;
+    },
+    changeUsername(state, payload) {
+      state.profileUsername = payload;
+    },
   },
   actions: {
     async getCurrentUser({ commit }) {
@@ -64,8 +73,16 @@ export default new Vuex.Store({
       const dbResults = await dataBase.get();
       commit("setProfileInfo", dbResults);
       commit("setProfileInitials");
-      console.log(dbResults);
     },
+    async updateUserSettings({ commit, state }) {
+      const dataBase = await db.collection('users').doc(state.profileId);
+      await dataBase.update({
+        firstName: state.profileFirstName,
+        lastName: state.profileLastName,
+        userName: state.profileUsername,
+      });
+      commit("setProfileInitials");
+    }
   },
   modules: {
   }
